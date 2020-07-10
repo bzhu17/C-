@@ -1,0 +1,11 @@
+compiling linking
+linking阶段，会在所有文件中寻找函数和变量，如果找不到或者找到两个，会报错
+在.h头文件中如果放入函数定义，.cpp文件由于include头文件同样会有函数定义，此时如果其它文件中也引入了头文件，也会拥有函数定义，这样linking时就会找到多个，造成错误
+可以使用static函数，这样每一个引用头文件的文件都会拥有自己的函数定义
+或者使用inline，这时引入的就不是整个函数定义，而是直接将函数的代码copy
+( void print(const char* message){ std::cout<<message<<std::endl;}
+这个函数会直接copy为 std::cout<<"Cherno"<<std::endl; 所以不会报错)
+所以最好将函数定义放在cpp文件中
+
+Functor
+函数调用时，foo(1)，所以()就好像是调用函数一样，如果在struct中，重载()，效果与函数调用类似，并且可以使用constructor避免手动输入一些重复的值，struct中的变量保存了状态，functor可以用在sort中，

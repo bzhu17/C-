@@ -1,0 +1,32 @@
+vector<int> vec={1,2,3,4,5};
+vector<int>::iterator it=find(vec.begin(),vec.end(),3);
+it==vec.end();//not found
+int index=it-vec.begin();
+
+string st="abcd";
+auto it=find('e');//it is the index
+int it=find('a');
+auto it=find('a',2);//[2,....] the frist 'a'
+auto it=find("abcd",0,2);//from 0 find "abcd" first two charactors
+
+
+istringstream是由一个string对象构造而来，从一个string对象读取字符。
+ostringstream同样是有一个string对象构造而来，向一个string对象插入字符。
+stringstream则是用于C++风格的字符串的输入输出的。
+可以用于分割被空格、制表符等符号分割的字符串
+
+string st="abc def ghd";
+istringstream is(st);
+while(is>>tmp) cout<<tmp<<endl;
+
+string st="100 1.0 ghd";
+istringstream is(st);
+int i;float j;string tmp;
+is>>i;is>>j;is>>tmp;
+
+string st;
+ostringstream os;
+os<<"abc ";
+os<<"def ";
+os<<"ghi ";
+st=os.str();
